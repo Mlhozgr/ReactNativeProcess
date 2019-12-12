@@ -1,6 +1,7 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
+import { declaredPredicate } from '@babel/types';
 
 
 
@@ -9,9 +10,10 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <View style={[styles.box1,styles.ortak]}></View>
-        <View style={[styles.ortak,styles.box2]}></View>
+        <Text style={styles.welcome}>Hoşgeldiniz</Text>
+        <View style={styles.arka1}></View>
+        <View style={styles.arka2}></View>
+        
 
         
         
@@ -22,10 +24,10 @@ export default class App extends Component<Props> {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor:'#ddd',
+    flex: 1, // arkaplan 1 parça ve container arka1 ve arka2 nin babası
+    
+    
   },
   welcome: {
     fontSize: 20,
@@ -33,19 +35,14 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   
-  box1: {
-    backgroundColor:'#E13131',
-    
-    
+  arka1: {
+    backgroundColor:'#0C70A5',
+    flex:1              // arka2 nin flexi 2 olduğu için toplam 3 parçanın 1 parçası arka1 in
+
   },
-  box2:{
-    backgroundColor:'#ddd'
-  },
-  ortak: {
-    width:250,
-    height:250,
-    borderWidth:5,
-    marginBottom:5
+  arka2 :{
+    backgroundColor:'#C73E2E',
+    flex:2
   }
 
 });
