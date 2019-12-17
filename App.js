@@ -1,7 +1,9 @@
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
-import { declaredPredicate } from '@babel/types';
+import { StyleSheet, Text, View} from 'react-native';
+import Card from '.\src\components\Card.js';
+
+
 
 
 
@@ -15,7 +17,10 @@ export default class App extends Component<Props> {
           <View style={[styles.box,styles.box2]}></View>
           <View style={[styles.box,styles.box1]}></View>
         </View>
-        <View style={styles.arka2}></View>
+        <View style={styles.arka2}>
+          <Text>Merhaba kullanıcı</Text>
+          
+        </View>
       </View>
     );
   }
@@ -31,7 +36,10 @@ const styles = StyleSheet.create({
  arka1: {
     backgroundColor:'#0C70A5',
     flex:1,              // arka2 nin flexi 2 olduğu için toplam 3 parçanın 1 parçası arka1 in
-    flexDirection:'column'
+    flexDirection:'column',
+    justifyContent:'center' //kutucukları ortaladı
+    
+
     },
   box: {
     height:100,
@@ -46,7 +54,11 @@ const styles = StyleSheet.create({
   },
   arka2 :{
     backgroundColor:'#C73E2E',
-    flex:2
+    flex:2,
+    flexDirection:'column',
+    justifyContent:'center',
+    alignItems:'center'
+    
   }
 
 });
