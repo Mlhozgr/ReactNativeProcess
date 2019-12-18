@@ -1,25 +1,22 @@
 
 import React, {Component} from 'react';
 import { StyleSheet, Text, View} from 'react-native';
-import Card from '.\src\components\Card.js';
+import Card from './src/components/Card'; 
 
-
-
-
-
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
         
         <View style={styles.arka1}>
           <View style={[styles.box,styles.box2]}></View>
-          <View style={[styles.box,styles.box1]}></View>
+          <View style={[styles.box,styles.box1]}></View> 
         </View>
         <View style={styles.arka2}>
-          <Text>Merhaba kullanıcı</Text>
-          
+          <Text>Merhaba kullanıcı</Text> 
+          <Card text='Hello' backgroundColor='#ddd' />                                        
+          <Card text='Login' />
+          <Card deneme1={2019} text='$' backgroundColor='#fff'/>
         </View>
       </View>
     );
