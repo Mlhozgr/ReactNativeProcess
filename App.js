@@ -5,14 +5,21 @@ import { StyleSheet, Text, View,Button} from 'react-native';
 import Card from './src/components/Card'; 
 
 export default class App extends Component {
-  onPressDetail = () => {                     /* Butonun çağıracağı event */
-    alert('Detail'); 
+  state = {
+    name :'Melih'
+  };
+  onPressNameChange = () => {                     /* Butonun çağıracağı event */
+    this.setState({                               /*State değerini değiştirmek için setState    */
+        name : 'Özgör'
+    }) ;
+
+    
   };
  
   render() {
     return (
       <View style={styles.container}>
-       
+         
         
          <View style={styles.arka1}> 
           <View style={[styles.box,styles.box2]}></View>  
@@ -24,11 +31,17 @@ export default class App extends Component {
           <Card text='Login' />
           <Card deneme1={2019} text='$' backgroundColor='#fff'/>
           <Button 
-                title='BUTON'                           /* Buton işlemleri */
+                title='Change The Name'                           /* Buton işlemleri */
                 color='red'
-                onPress={this.onPressDetail}
+                onPress={this.onPressNameChange}
                 />
+
+              <View>         
+            <Text  /* statein çağrılma şekli */ >{this.state.name}  </Text>
+              </View>
         </View>
+
+        
       </View>
     );
   }
