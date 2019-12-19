@@ -6,15 +6,30 @@ import Card from './src/components/Card';
 
 export default class App extends Component {
   state = {
-    name :'Melih'
+    name :'kullanıcı'
+  };
+  state = {
+    number:0
   };
   onPressNameChange = () => {                     /* Butonun çağıracağı event */
     this.setState({                               /*State değerini değiştirmek için setState    */
-        name : 'Özgör'
-    }) ;
-
+        name : 'kanka',
+    });
+    };
     
-  };
+    onPressNumberDecrease = () => {
+      this.setState({
+        number : --this.state.number,
+
+      });
+    };
+    onPressNumberIncrease = () => {
+      this.setState({
+        number : ++this.state.number,
+
+      });
+
+    };
  
   render() {
     return (
@@ -26,19 +41,33 @@ export default class App extends Component {
          <View style={[styles.box,styles.box1]}></View>  
         </View> 
         <View style={styles.arka2}>
-          <Text>Merhaba kullanıcı</Text> 
+          <Text  /* statein çağrılma şekli */>Merhaba  {this.state.name}</Text> 
           <Card text='Hello' backgroundColor='#ddd' />                                        
           <Card text='Login' />
           <Card deneme1={2019} text='$' backgroundColor='#fff'/>
+          <View>         
+            <Text  > </Text>
+            
+              </View>
           <Button 
-                title='Change The Name'                           /* Buton işlemleri */
+                title='kanka?'                           /* Buton işlemleri */
                 color='red'
                 onPress={this.onPressNameChange}
                 />
+           <Button 
+                title='Azalt'
+                color='blue'
+                onPress={this.onPressNumberDecrease}
+           
+           />
+           <Button 
+                title='Arttır'
+                color='blue'
+                onPress={this.onPressNumberIncrease}
+                  />
+                <Text>{this.state.number}</Text>       
 
-              <View>         
-            <Text  /* statein çağrılma şekli */ >{this.state.name}  </Text>
-              </View>
+              
         </View>
 
         
