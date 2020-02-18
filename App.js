@@ -1,7 +1,7 @@
 /* yorum satırı */
 
 import React, {Component} from 'react';
-import { StyleSheet, Text, View,Button} from 'react-native';
+import { StyleSheet, Text, View,Button,Image, TouchableOpacity} from 'react-native';
 import Card from './src/components/Card'; 
 
 export default class App extends Component {
@@ -10,6 +10,9 @@ export default class App extends Component {
   };
   state = {
     number:0
+  };
+  onPressAlert = ()  => {
+    alert('Uygulamayı Beğendiniz mi?');
   };
   onPressNameChange = () => {                     /* Butonun çağıracağı event */
     this.setState({                               /*State değerini değiştirmek için setState    */
@@ -34,41 +37,40 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
+        
          
         
-         <View style={styles.arka1}> 
-          <View style={[styles.box,styles.box2]}></View>  
-         <View style={[styles.box,styles.box1]}></View>  
-        </View> 
-        <View style={styles.arka2}>
-          <Text  /* statein çağrılma şekli */>Merhaba  {this.state.name}</Text> 
-          <Card text='Hello' backgroundColor='#ddd' />                                        
-          <Card text='Login' />
-          <Card deneme1={2019} text='$' backgroundColor='#fff'/>
-          <View>         
-            <Text  > </Text>
-            
-              </View>
-          <Button 
-                title='kanka?'                           /* Buton işlemleri */
-                color='red'
-                onPress={this.onPressNameChange}
-                />
-           <Button 
-                title='Azalt'
-                color='blue'
-                onPress={this.onPressNumberDecrease}
-           
-           />
-           <Button 
-                title='Arttır'
-                color='blue'
-                onPress={this.onPressNumberIncrease}
-                  />
-                <Text>{this.state.number}</Text>       
+        
+        
+          <View>
+            <Image source={require('./android/app/src/main/assets/kb.png')} ></Image>
+          </View>
+          <View>
+                <TouchableOpacity style={{marginBottom:40}}>
+                    <View style={styles.buttonContainer}>
+              <Text style={styles.buttonTitle}>Login</Text>
+                    </View>
+              </TouchableOpacity>
+              <TouchableOpacity
+                  onPress={this.onPressAlert}    >            
+                  <Image 
+                  style={{height:100 , width:100}} 
+                  source={require('./android/app/src/main/assets/like.png')}>
 
-              
-        </View>
+                  </Image>
+              </TouchableOpacity>
+          </View>
+          
+          
+          
+        
+          
+               
+
+           
+        
+        
+       
 
         
       </View>
@@ -78,37 +80,26 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor:'#ddd',
+  
     flex: 1, // arkaplan 1 parça ve container arka1 ve arka2 nin babası
-    flexDirection:'row' 
-    },
-
- arka1: {
-    backgroundColor:'#0C70A5',
-    flex:1,              // arka2 nin flexi 2 olduğu için toplam 3 parçanın 1 parçası arka1 in 
     flexDirection:'column',
-    justifyContent:'center' //kutucukları ortaladı
-    
-
-    },
-  box: {
-    height:100,
-    width:138
-  },
-  box1:{
-    backgroundColor:'#1C2833',
-    
-},
-  box2: {
-    backgroundColor:'#fff'
-  },
-  arka2 :{
     backgroundColor:'#C73E2E',
     flex:2,                           
-    flexDirection:'column',                              
+                                  
     justifyContent:'center',
     alignItems:'center'
+    },
+
+   
+
+  buttonContainer:{
+    borderRadius:15,
+    padding:15,
+    backgroundColor:'white'
     
+  },
+  buttonTitle:{
+    fontSize:24
   }
 
 });
