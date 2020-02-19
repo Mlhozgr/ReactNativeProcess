@@ -1,4 +1,4 @@
-package com.helloworldproject;
+package com.kithub;
 
 import android.app.Application;
 
