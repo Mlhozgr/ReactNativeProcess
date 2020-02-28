@@ -1,12 +1,12 @@
 /* yorum satırı */
 
 import React, {Component} from 'react';
-import { StyleSheet, Text, View,Button,Image, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View,Button,Image, TouchableOpacity, TextInput} from 'react-native';
 import Card from './src/components/Card'; 
 
 export default class App extends Component {
   state = {
-    name :'kullanıcı'
+    name :''
   };
   state = {
     number:0
@@ -33,10 +33,17 @@ export default class App extends Component {
       });
 
     };
+    _onChangeText = text => {
+      this.setState({
+        name:text,
+      })
+    }
  
   render() {
+    const{name}=this.state;
     return (
       <View style={styles.container}>
+       
         
          
         
@@ -46,6 +53,14 @@ export default class App extends Component {
             <Image source={require('./android/app/src/main/assets/kb.png')} ></Image>
           </View>
           <View>
+          <View >
+      <Text>{name}</Text>
+      <TextInput
+      
+      value={name}
+      onChangeText={this._onChangeText}
+      style={styles.myInput}/></View> 
+            
                 <TouchableOpacity style={{marginBottom:40}}>
                     <View style={styles.buttonContainer}>
               <Text style={styles.buttonTitle}>Login</Text>
@@ -59,20 +74,9 @@ export default class App extends Component {
 
                   </Image>
               </TouchableOpacity>
+              
           </View>
           
-          
-          
-        
-          
-               
-
-           
-        
-        
-       
-
-        
       </View>
     );
   }
@@ -84,10 +88,11 @@ const styles = StyleSheet.create({
     flex: 1, // arkaplan 1 parça ve container arka1 ve arka2 nin babası
     flexDirection:'column',
     backgroundColor:'#C73E2E',
-    flex:2,                           
+                               
                                   
     justifyContent:'center',
-    alignItems:'center'
+    alignItems:'center',
+    paddingHorizontal:10
     },
 
    
@@ -100,6 +105,14 @@ const styles = StyleSheet.create({
   },
   buttonTitle:{
     fontSize:24
+  },
+  myInput:{
+    width:'100%',
+    height:40,
+    borderWidth:2,
+    borderColor:'blue',
+    backgroundColor:'white' 
+
   }
 
 });
