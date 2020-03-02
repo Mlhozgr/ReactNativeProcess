@@ -59,6 +59,13 @@ export default class App extends Component {
       
       value={name}
       onChangeText={this._onChangeText}
+      placeholder='Kullanıcı Adınızı Giriniz'
+      
+      style={styles.myInput}/>
+      <TextInput 
+      placeholder='Parola'
+      secureTextEntry={true}
+      keyboardType='number-pad'  
       style={styles.myInput}/></View> 
             
                 <TouchableOpacity style={{marginBottom:40}}>
@@ -110,8 +117,9 @@ const styles = StyleSheet.create({
     width:'100%',
     height:40,
     borderWidth:2,
-    borderColor:'blue',
-    backgroundColor:'white' 
+    borderColor:'#3B8795',
+    backgroundColor:'white',
+    borderRadius:10 
 
   }
 
